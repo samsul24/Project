@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:layout_margin="25dp"
     tools:context=".StartActivity">
 
     <ImageView
@@ -42,13 +41,13 @@
         android:layout_width="250dp"
         android:layout_height="0dp"
         android:layout_marginBottom="48dp"
-        android:background="#5FC7F6"
+        android:background="#2C2C2C"
         android:onClick="handleStart"
-        android:text="Let's Started"
+        android:text="Start"
         android:textAllCaps="false"
-        android:textColor="#090909"
+        android:textColor="#F3F3F3"
         android:textColorLink="#FFFFFF"
-        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
