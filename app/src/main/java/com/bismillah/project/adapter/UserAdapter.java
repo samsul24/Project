@@ -14,12 +14,11 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class UserAdapter extends AbstractItem<UserAdapter, UserAdapter.ViewHolder>{
-   private String avatar,username1,url1;
+ private String avatar,user;
 
-    public UserAdapter(String avatar, String username, String url) {
+    public UserAdapter(String avatar, String user) {
         this.avatar = avatar;
-        this.username1 = username;
-        this.url1 = url;
+        this.user = user;
     }
 
     public String getAvatar() {
@@ -30,20 +29,12 @@ public class UserAdapter extends AbstractItem<UserAdapter, UserAdapter.ViewHolde
         this.avatar = avatar;
     }
 
-    public String getUsername() {
-        return username1;
+    public String getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username1 = username;
-    }
-
-    public String getUrl() {
-        return url1;
-    }
-
-    public void setUrl(String url) {
-        this.url1 = url;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     @NonNull
@@ -64,28 +55,24 @@ public class UserAdapter extends AbstractItem<UserAdapter, UserAdapter.ViewHolde
     }
 
     public class ViewHolder extends FastAdapter.ViewHolder<UserAdapter> {
-        private ImageView foto;
-        private TextView username,url;
+         ImageView foto;
+         TextView username;
         public ViewHolder(View itemView) {
             super(itemView);
-            username = itemView.findViewById(R.id.nameView);
-            url = itemView.findViewById(R.id.urlView);
+            username = itemView.findViewById(R.id.userView);
             foto = itemView.findViewById(R.id.dataImage);
         }
 
         @Override
         public void bindView(UserAdapter item, List<Object> payloads) {
+            username.setText(item.user);
             Picasso.get().load(item.avatar).into(foto);
-            username.setText(item.username1);
-            url.setText(item.url1);
-
         }
 
         @Override
         public void unbindView(UserAdapter item) {
             foto.setImageBitmap(null);
             username.setText(null);
-            url.setText(null);
         }
     }
 }

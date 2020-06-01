@@ -13,9 +13,10 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
-    @GET("/users/")
-    Call<ResponeUser> getUser(@Query("login") String login );
     @GET("/users")
-    Call<Envelope<List<ResponeAllUser>>> getDataUser(@Query("page") EditText page);
+    Call<List<ResponeAllUser>> getUsers(@Query("page") int page);
+
+    @GET("/users/")
+    Call<ResponeUser> getUser(@Query("page") String username);
 
 }

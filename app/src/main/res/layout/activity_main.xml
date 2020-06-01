@@ -4,35 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/pop"
     android:padding="8dp"
     tools:context=".MainActivity"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <EditText
-            android:id="@+id/userInput"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:hint="Search :"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintHorizontal_bias="0.507" />
 
-        <ImageButton
+<!--        <EditText-->
+<!--            android:id="@+id/userInput"-->
+<!--            android:layout_width="256dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:hint="Search :"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/button2"-->
+<!--            app:layout_constraintHorizontal_bias="0.507" />-->
+
+        <ImageView
             android:id="@+id/button2"
-            android:layout_width="66dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="#2C2C2C"
-            android:onClick="handleRequest"
-            android:src="@drawable/sea"
+            android:layout_width="88dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="handleSearch"
+            android:src="@drawable/git"
             android:textColor="#D8D7D7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Welcome to GitHub"
+            android:textSize="30dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,15 +59,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
+                <Button
+                    android:id="@+id/load"
+                    android:background="#2C2C2C"
+                    android:textSize="16dp"
+                    android:textColor="#fff"
+                    android:onClick="handleLoadMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Load" />
+                <TextView
+                    android:id="@+id/dataLoad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="All Data has been Loaded"
+                    android:textSize="18dp" />
             </LinearLayout>
-
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="560dp" />
+
+
 
     </LinearLayout>
 </LinearLayout>
