@@ -48,16 +48,6 @@
         <!--            android:layout_marginTop="-4dp"-->
         <!--            android:src="@drawable/logo2" />-->
 
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Nama :"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="14sp"
-            android:textStyle="normal" />
-
         <!--        <TextView-->
         <!--            android:id="@+id/urllView"-->
         <!--            android:layout_width="match_parent"-->
@@ -79,14 +69,25 @@
         <!--            android:textColor="@color/design_default_color_on_secondary"-->
         <!--            android:textSize="14sp"-->
         <!--            android:textStyle="normal" />-->
+
         <TextView
-            android:id="@+id/idView"
+            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nama"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Id :"
+            android:text="Nama :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/urllView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/typeView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="9dp"
+            android:text="Alamat Url :"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="14sp"
             android:textStyle="normal" />
@@ -104,41 +105,28 @@
             android:textStyle="normal" />
 
         <TextView
-            android:id="@+id/follView"
+            android:id="@+id/idView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/typeView"
+            android:layout_below="@id/nama"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"
-            android:text="Followers :"
+            android:layout_marginTop="10dp"
+            android:text="Id :"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="14sp"
             android:textStyle="normal" />
 
         <TextView
-            android:id="@+id/flowingView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/follView"
+            android:id="@+id/fotoView"
+            android:layout_width="348dp"
+            android:layout_height="196dp"
+            android:layout_below="@+id/urllView"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Following :"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="20dp"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="14sp"
             android:textStyle="normal" />
-
-        <TextView
-            android:id="@+id/urllView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/flowingView"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Alamat Url :"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="14sp"
-            android:textStyle="normal" />
-
         <!--        <TextView-->
         <!--            android:id="@+id/namaKabko"-->
         <!--            android:layout_width="match_parent"-->

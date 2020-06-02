@@ -1,8 +1,6 @@
 package com.bismillah.project.api.helper;
 
 
-import android.text.TextUtils;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -50,15 +48,15 @@ public class ServiceGenerator {
 
         return retrofit.create(serviceClass);
     }
-
-    public static <S> S createService(Class<S> serviceClass, String authToken) {
-        if (!TextUtils.isEmpty(authToken)) {
-            httpClient.addInterceptor(new AuthenticationInterceptor(authToken));
-        }
-        builder.client(httpClient.build());
-        retrofit = builder.build();
-        return retrofit.create(serviceClass);
-    }
-
+//
+//    public static <S> S createService(Class<S> serviceClass, String authToken) {
+//        if (!TextUtils.isEmpty(authToken)) {
+//            httpClient.addInterceptor(new AuthenticationInterceptor(authToken));
+//        }
+//        builder.client(httpClient.build());
+//        retrofit = builder.build();
+//        return retrofit.create(serviceClass);
+//    }
+//
 
 }

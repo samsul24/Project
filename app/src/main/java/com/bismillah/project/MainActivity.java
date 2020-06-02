@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private Button load;
     private TextView dataLoad;
 
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

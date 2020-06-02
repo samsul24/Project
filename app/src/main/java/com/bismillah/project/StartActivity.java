@@ -1,12 +1,13 @@
 package com.bismillah.project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
@@ -56,12 +57,28 @@ public class StartActivity extends AppCompatActivity {
             }
         });
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-7780269601933724~7033255283");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
     public void handleStart(View view) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        mInterstitialAd.setAdListener(new AdListener(){
+                        @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                mInterstitialAd.show();
+
+            }
+        });
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
     }
 }
