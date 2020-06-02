@@ -12,13 +12,23 @@ public class ServiceGenerator {
 
 
     private static final String BASE_URL = "https://api.github.com";
+    public static Retrofit retrofit = null;
 
+    public static Retrofit getClient(){
+        if (retrofit==null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create());
 
-    private static Retrofit retrofit;
+//    private static Retrofit retrofit;
     public static Retrofit retrofit(){
         return retrofit;
     }

@@ -1,78 +1,81 @@
 package com.bismillah.project.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.mikepenz.fastadapter.FastAdapter;
-import com.mikepenz.fastadapter.items.AbstractItem;
+import com.bismillah.project.DetailActivity;
 import com.bismillah.project.R;
+import com.bismillah.project.api.models.Item;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class UserAdapter extends AbstractItem<UserAdapter, UserAdapter.ViewHolder>{
- private String avatar,user;
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
+    private List<Item> items;
+    private Context context;
 
-    public UserAdapter(String avatar, String user) {
-        this.avatar = avatar;
-        this.user = user;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder getViewHolder(View v) {
-        return new ViewHolder((v));
+    public UserAdapter(Context applicationContext,List<Item> itemArrayList ) {
+        this.context = applicationContext;
+        this.items = itemArrayList;
     }
 
     @Override
-    public int getType() {
-        return R.id.recycler_list;
+    public UserAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_user, viewGroup, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public int getLayoutRes() {
-        return R.layout.item_user;
-
+    public void onBindViewHolder(UserAdapter.ViewHolder viewHolder, int i) {
+        viewHolder.username.setText(items.get(i).getLogin());
+        viewHolder.githublink1.setText(items.get(i).getHtmlUrl());
+        Picasso.with(context)
+                .load(items.get(i).getAvatarUrl())
+                .placeholder(R.drawable.git)
+                .into(viewHolder.imageView);
     }
 
-    public class ViewHolder extends FastAdapter.ViewHolder<UserAdapter> {
-         ImageView foto;
-         TextView username;
-        public ViewHolder(View itemView) {
-            super(itemView);
-            username = itemView.findViewById(R.id.userView);
-            foto = itemView.findViewById(R.id.dataImage);
-        }
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
 
-        @Override
-        public void bindView(UserAdapter item, List<Object> payloads) {
-            username.setText(item.user);
-            Picasso.get().load(item.avatar).into(foto);
-        }
 
-        @Override
-        public void unbindView(UserAdapter item) {
-            foto.setImageBitmap(null);
-            username.setText(null);
+    public class ViewHolder extends RecyclerView.ViewHolder {
+         private TextView username,githublink1;
+         private ImageView imageView;
+
+        public ViewHolder(View view) {
+            super(view);
+            username = view.findViewById(R.id.userView);
+            githublink1 =view.findViewById(R.id.githublink1);
+            imageView = view.findViewById(R.id.cover);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Item clickedDataItem = items.get(pos);
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        intent.putExtra("login", items.get(pos).getLogin());
+                        intent.putExtra("html_url", items.get(pos).getHtmlUrl());
+                        intent.putExtra("avatar_url", items.get(pos).getAvatarUrl());
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        Toast.makeText(v.getContext(), "You clicked " + clickedDataItem.getLogin(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            });
         }
     }
 }

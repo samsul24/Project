@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:fitsSystemWindows="true" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cover"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:text="Username :"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="219dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/cover"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"
+        android:textColor="#2C2C2C"
+        android:layout_toEndOf="@+id/header"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/githublink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Github Link :"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="216dp"
+        android:layout_height="63dp"
+        android:layout_below="@+id/username"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/githublink"
+        android:background="#2C2C2C"
+        android:textColor="#2C2C2C"
+        android:textSize="20dp" />
+
+</RelativeLayout>

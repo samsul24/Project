@@ -7,7 +7,7 @@
     tools:context=".SearchActivity">
 
     <EditText
-        android:id="@+id/userInput"
+        android:id="@+id/nameView"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -26,6 +26,155 @@
         android:background="#2C2C2C"
         android:src="@drawable/sea"
         android:textColor="#D8D7D7"
+        android:onClick="handleRequest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/boxresult"
+        android:layout_width="372dp"
+        android:layout_height="405dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="116dp"
+        android:padding="24dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/image"-->
+        <!--            android:layout_width="314dp"-->
+        <!--            android:layout_height="231dp"-->
+        <!--            android:layout_marginTop="-4dp"-->
+        <!--            android:src="@drawable/logo2" />-->
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Nama :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/urllView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:text=""-->
+        <!--            android:textColor="@color/design_default_color_on_secondary"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="normal" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/line"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/line1"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:text=""-->
+
+        <!--            android:textColor="@color/design_default_color_on_secondary"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="normal" />-->
+        <TextView
+            android:id="@+id/idView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nama"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Id :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/typeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Status :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/follView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/typeView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:text="Followers :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/flowingView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/follView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Following :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/urllView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/flowingView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Alamat Url :"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/namaKabko"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/namaPropinsi"-->
+        <!--            android:layout_marginTop="2dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:text="Nama KabKo :"-->
+        <!--            android:textColor="@color/design_default_color_on_secondary"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="normal" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/namaKec"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/namaKabko"-->
+        <!--            android:layout_marginTop="2dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:text="Nama Kecamatan :"-->
+        <!--            android:textColor="@color/design_default_color_on_secondary"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="normal" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/namaKel"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/namaKec"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:text="Nama Kelurahan :"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:textColor="@color/design_default_color_on_secondary"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="normal" />-->
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

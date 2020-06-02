@@ -1,8 +1,6 @@
 package com.bismillah.project.api.services;
 
-import android.widget.EditText;
-
-import com.bismillah.project.api.models.Envelope;
+import com.bismillah.project.api.models.ItemResponse;
 import com.bismillah.project.api.models.ResponeAllUser;
 import com.bismillah.project.api.models.ResponeUser;
 
@@ -17,6 +15,8 @@ public interface ApiInterface {
     Call<List<ResponeAllUser>> getUsers(@Query("page") int page);
 
     @GET("/users/")
-    Call<ResponeUser> getUser(@Query("page") String username);
+    Call<ResponeUser> getUser(@Query("login") String username);
 
+    @GET("/search/users?q=language:java+location:lagos")
+    Call<ItemResponse> getItems(@Query("page") int page);
 }
